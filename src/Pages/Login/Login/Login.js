@@ -1,18 +1,16 @@
-import { Container, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
-import React, { useState } from 'react';
-import { Grid } from '@mui/material';
-import login from '../../../images/login.png'
+import loginImg from '../../../img/gallery/new_product1.png'
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import react  ,{useState}  from 'react';
 import useAuth from './../../../hooks/useAuth';
 
 const Login = () => {
-    const [loginData, setLoginData] = useState({});
+    const [loginData, setLoginData] = useState();
     const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
 
     const location = useLocation();
     const history = useHistory();
 
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
@@ -28,45 +26,62 @@ const Login = () => {
         signInWithGoogle(location, history)
     }
     return (
-        <Container>
-            <Grid container spacing={2}>
-                <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-                    <Typography variant="body1" gutterBottom>Login</Typography>
-                    <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Email"
-                            name="email"
-                            onChange={handleOnChange}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            onChange={handleOnChange}
-                            variant="standard" />
-
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</Button>
-                        <NavLink
-                            style={{ textDecoration: 'none' }}
+        <div>
+        <section class="login_part section_padding ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_text text-center">
+                        <div class="login_part_text_iner">
+                            <img src={loginImg} alt=""/>
+                            <h2>New to our Shop?</h2>
+                            <p>There are advances being made in science and technology
+                                everyday, and a good example of this is the</p>
+                            <NavLink to="/register" class="btn_3">Create an Account</NavLink>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_form">
+                        <div class="login_part_form_iner">
+                            <h3>Welcome Back ! <br/>
+                                Please Sign in now</h3>
+                                <form onSubmit={handleLoginSubmit}>
+          
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" onBlur={handleOnBlur} id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required/><small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    
+    <input type="password" class="form-control"  onBlur={handleOnBlur} id="password" name="password" placeholder="Password" required/>
+  </div>
+ 
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                        <div className="login_part_text ">
+                        <NavLink 
+                            style={{ textDecoration: 'none', color:'black'}}
                             to="/register">
-                            <Button variant="text">New User? Please Register</Button>
+                            <button className="text-primary">New User? Please Register</button>
                         </NavLink>
-                        {isLoading && <CircularProgress />}
-                        {user?.email && <Alert severity="success">Login successfully!</Alert>}
-                        {authError && <Alert severity="error">{authError}</Alert>}
-                    </form>
+                        {isLoading && <spinner animation="grow" variant="light" />}
+                        {user?.email && <alert severity="success">Login successfully!</alert>}
+                        {authError && <alert severity="error">{authError}</alert>}
+                   
                     <p>------------------------</p>
-                    <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <img style={{ width: '100%' }} src={login} alt="" />
-                </Grid>
-            </Grid>
-        </Container>
+                    <button className="text-primary" onClick={handleGoogleSignIn}>Google Sign In</button> 
+                    </div>
+                    </div>
+            
     );
 };
 

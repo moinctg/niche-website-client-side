@@ -1,6 +1,10 @@
 import React from 'react';
-import { Carousel,Item, } from 'react-bootstrap';
-// import slide1 from '../../../img/banner/'
+// import { Carousel,Item, } from 'react-bootstrap';
+import slider1 from '../../../img/banner/slide1.jpg'
+import slider2 from '../../../img/banner/slide2.jpg'
+import slider3 from '../../../img/banner/slide7.jpg'
+import slider4 from '../../../img/banner/slide4.jpg'
+import slider5 from '../../../img/banner/slide6.jpg'
 
 
 
@@ -11,91 +15,92 @@ const Banner = () => {
        <div>
 
 
-<Carousel>
-  <Carousel.Item interval={1000}>
-    <img
-      className="d-block w-100"
-      src="assets/img/hero" 
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item interval={500}>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Second slide&bg=282c34"
-      alt="Second slide"
-    />
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=20232a"
-      alt="Third slide"
-    />
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src={slider1} alt="First slide"/>
+      <div class="carousel-caption d-none d-md-block">
+    <h5>...</h5>
+    <p>...</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={slider2} alt="Second slide"/>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={slider3} alt="Third slide"/>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={slider4} alt="Third slide"/>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={slider5} alt="Third slide"/>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
             
-        
-        <div class="slider-area ">
-            <div class="slider-active">
-   
-                <div class="single-slider slider-height d-flex align-items-center slide-bg">
-                    <div class="container">
-                        <div class="row justify-content-between align-items-center">
-                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                <div class="hero__caption">
+{/*         
+            <div className="slider-area ">
+            <div className="slider-active">
+               
+                <div className="single-slider slider-height d-flex align-items-center slide-bg">
+                    <div className="container">
+                        <div className="row justify-content-between align-items-center">
+                            <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                                <div className="hero__caption">
                                     <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your New Perfect Style</h1>
                                     <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
-                                    
-                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                   
+                                    <div className="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
+                                        <a href="industries.html" className="btn hero-btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
-                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="assets/img/hero/watch.png" alt="" class=" heartbeat"/>
+                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
+                                <div className="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src={slider1} alt="" className=" heartbeat"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-               
-                <div class="single-slider slider-height d-flex align-items-center slide-bg">
-                    <div class="container">
-                        <div class="row justify-content-between align-items-center">
-                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                                <div class="hero__caption">
+
+                <div className="single-slider slider-height d-flex align-items-center slide-bg">
+                    <div className="container">
+                        <div className="row justify-content-between align-items-center">
+                            <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                                <div className="hero__caption">
                                     <h1 data-animation="fadeInLeft" data-delay=".4s" data-duration="2000ms">Select Your New Perfect Style</h1>
                                     <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
-                                 
-                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    
+                                    <div className="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
+                                        <a href="industries.html" className="btn hero-btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
-                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="assets/img/hero/watch.png" alt="" class=" heartbeat"/>
+                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
+                                <div className="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src={slider1} alt="" className=" heartbeat"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
         
        </div>
     );

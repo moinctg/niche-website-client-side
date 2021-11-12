@@ -1,13 +1,13 @@
-import { Container, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
-import React, { useState } from 'react';
-import { Grid } from '@mui/material';
-import login from '../../../images/login.png'
-import { NavLink, useHistory } from 'react-router-dom';
+import loginImg from '../../../img/gallery/new_product1.png'
+import react  ,{useState}  from 'react';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth';
+
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
     const history = useHistory();
+   
     const { user, registerUser, isLoading, authError } = useAuth();
 
     const handleOnBlur = e => {
@@ -16,69 +16,83 @@ const Register = () => {
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
+        console.log(newLoginData);
     }
     const handleLoginSubmit = e => {
-        if (loginData.password !== loginData.password2) {
-            alert('Your password did not match');
-            return
-        }
+        e.preventDefault();
+        // if (loginData.password !== loginData.password2) {
+        //     alert('Your password did not match');
+        //     return
+        // }
         registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
+        console.log('success')
     }
     return (
-        <Container>
-            <Grid container spacing={2}>
-                <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-                    <Typography variant="body1" gutterBottom>Register</Typography>
-                    {!isLoading && <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Name"
-                            name="name"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Email"
-                            name="email"
-                            type="email"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="Your Password"
-                            type="password"
-                            name="password"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
-                        <TextField
-                            sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
-                            label="ReType Your Password"
-                            type="password"
-                            name="password2"
-                            onBlur={handleOnBlur}
-                            variant="standard" />
+      <div>
+      <section class="login_part section_padding ">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-6 col-md-6">
+                  <div class="login_part_text text-center">
+                      <div class="login_part_text_iner">
+                          <img src={loginImg} alt=""/>
+                          <h2> Register </h2>
+                          <h2>Welcome ! Asian Watch Store</h2>
+                          <p>There are advances being made in science and technology
+                              everyday, and a good example of this is the</p>
+                  
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                  <div class="login_part_form">
+                      <div class="login_part_form_iner">
+                          <h3>Welcome Back ! <br/>
+                              Please Register  now</h3>
+                          
+                              <form onSubmit={handleLoginSubmit}>
+                              <div class="form-group" >
 
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
+    <input type="text" class="form-control" onBlur={handleOnBlur} id="name"  name="name"aria-describedby="emailHelp" placeholder="Enter Name" required/>
+
+  </div>
+  <div class="form-group">
+  
+    <input type="email" class="form-control" onBlur={handleOnBlur} id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required/><small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    
+    <input type="password" class="form-control"  onBlur={handleOnBlur} id="password" name="password" placeholder="Password" required/>
+  </div>
+  <div class="form-group">
+
+    <input type="password" class="form-control" onBlur={handleOnBlur} id="password2"  name="password" placeholder="Re-Type Password" required/>
+  </div>
+  
+  <button type="submit" class="btn_3">Submit</button>
+</form>
+        
+           
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
                         <NavLink
                             style={{ textDecoration: 'none' }}
                             to="/login">
-                            <Button variant="text">Already Registered? Please Login</Button>
+                            <button className="text-primary">Already Registered? Please Login</button>
                         </NavLink>
-                    </form>}
-                    {isLoading && <CircularProgress />}
-                    {user?.email && <Alert severity="success">User Created successfully!</Alert>}
-                    {authError && <Alert severity="error">{authError}</Alert>}
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <img style={{ width: '100%' }} src={login} alt="" />
-                </Grid>
-            </Grid>
-        </Container>
+                    
+                    {isLoading &&   <spinner animation="grow" variant="light" />}
+                    {user?.email && <div class="alert alert-primary" role="alert">
+                    User Created successfully!</div>}
+                    {authError && <div class="alert alert-danger" role="alert">{authError}</div>}
+                    
+                   
+                </div>
     );
 };
 

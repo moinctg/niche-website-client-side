@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Navigation = () => {
-    // const { user, logout } = useAuth();
+    const { user, logout } = useAuth();
     return (
         <div>
             <div id="preloader-active">
@@ -26,28 +27,22 @@ const Navigation = () => {
                     <div className="menu-wrapper">
                        
                         <div className="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""/></a>
+                            <Link to ="/home"><img src="assets/img/logo/logo.png" alt=""/></Link>
                         </div>
                         
                         <div className="main-menu d-none d-lg-block">
                             <nav>                                                
                                 <ul id="navigation">  
-                                    <li><a href="">Home</a></li>
-                                    <li><a href="">shop</a></li>
-                                    <li><a href="">about</a></li>
-                                    <li className="hot"><a href="#">Latest</a>
+                                    <li><Link to ="/home">Home</Link></li>
+                                    <li><Link to="/about">about</Link></li>
+                                    <li className="hot"><Link to ="#">Latest</Link>
                                         <ul className="submenu">
                                             <li><a href=""> Product list</a></li>
                                             <li><a href=""> Product Details</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul className="submenu">
-                                            <li><a href="">Blog</a></li>
-                                            <li><a href="">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Pages</a>
+                                   
+                                    <li><a href="#">Services</a>
                                         <ul className="submenu">
                                             <li><a href="">Login</a></li>
                                             <li><a href="">Cart</a></li>
@@ -56,7 +51,7 @@ const Navigation = () => {
                                             <li><a href="">Product Checkout</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="">Contact</a></li>
+                                    <li><Link to ="/contact">Contact</Link></li>
                                 </ul>
                             </nav>
                         </div>
@@ -68,8 +63,20 @@ const Navigation = () => {
                                         <span className="flaticon-search"></span>
                                     </div>
                                 </li>
-                                <li> <a href=""><span className="flaticon-user"></span></a></li>
-                                <li><a href=""><span className="flaticon-shopping-cart"></span></a> </li>
+                                
+                                {
+                                 user?.email? 
+                                 <button className="text-primary" onClick={logout}> Logout</button>: 
+                                 <li> < Link to ="/login"><span className="flaticon-user"></span>Login</Link> <br/>
+                                 <button className="text-warning"> {user?.displayName}</button>
+                                 
+                                 </li>
+                                
+                                 
+                                }
+                                 
+
+                                <li><a href=""><span className="flaticon-shopping-cart"> Shoping Cart</span></a> </li>
                             </ul>
                         </div>
                     </div>

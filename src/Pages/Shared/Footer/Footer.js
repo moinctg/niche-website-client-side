@@ -18,7 +18,8 @@ const Footer = () => {
                                 </div>
                                 <div className="footer-tittle">
                                     <div className="footer-pera">
-                                        <p className="text-primary">Asorem ipsum adipolor sdit amet, consectetur adipisicing elitcf sed do eiusmod tem.</p>
+                                        <p className="text-primary">Asian Watch Store  is a trading name of The Watch Shop Holdings Limited.
+WatchShop™ is a registered trademark © 2021 -  All rights reserved. It's  is the Bagladeshi company sale world  No. 1 Products in online.</p>
                                 </div>
                                 </div>
                             </div>
