@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 import from from "./AddServices.css";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
@@ -8,20 +9,22 @@ const AddServices = () => {
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addServices", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result));
     console.log(data);
-  };
+    axios.post("http://localhost:5000/addServices",data)
+    .then(res => {
+      if (res.data.insertedId) {
+          alert('added successfully');
+          reset();
+      }
+    })
+  }
+   
   return (
     <div>
       <div>

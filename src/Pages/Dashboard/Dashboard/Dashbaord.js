@@ -7,11 +7,11 @@ import Review from "./../Review/Review";
 import MyBookings from "./../MyBookings/MyBookings";
 import MakeAdmin from "./../MakeAdmin/MakeAdmin";
 import ManageServices from "./../ManageServices/ManageServices";
-import useFirebase from "./../../Hook/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
-  const { user } = useFirebase();
+  const { user } = useAuth();
   const [isAdmi, setIsAdmin] = useState(false);
 
   useEffect(() => {

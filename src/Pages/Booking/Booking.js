@@ -17,7 +17,7 @@ const Booking = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('https://fierce-reaches-68927.herokuapp.com/services', data)
+        axios.post('http://localhost:5000/addOrders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');
@@ -27,7 +27,7 @@ const Booking = () => {
         }
     
     useEffect(() => {
-        fetch(`https://fierce-reaches-68927.herokuapp.com/services/${serviceId}`)
+        fetch(`http://localhost:5000/singleService/${serviceId}`)
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])
@@ -39,7 +39,7 @@ const Booking = () => {
 
               <hr/>
            
-           <h2 className="text-primary text-center">Booking Information...</h2>
+           <h2 className="text-primary text-center">Order Information...</h2>
            < div className="order">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input defaultValue={user.displayName} {...register("name", { required: true,  })} placeholder="Name" />

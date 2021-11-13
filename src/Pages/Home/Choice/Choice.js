@@ -55,6 +55,46 @@ const Choice = () => {
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
       
         <div className="shop-method-area">
             <div className="container">

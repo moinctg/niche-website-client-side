@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useFirebase from "./../../Hook/useFirebase";
+import useAuth from "../../../hooks/useAuth";
+
 
 const Review = () => {
   const { register, handleSubmit, watch, errors } = useForm();
-  const { user } = useFirebase();
+  const { user } = useAuth
   const onSubmit = (data) => {
     fetch("http://localhost:5000/addSReview", {
       method: "POST",

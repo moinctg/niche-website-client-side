@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import useFirebase from "./../../Hook/useFirebase";
+import useAuth from "../../../hooks/useAuth";
+
 
 const MyBookings = () => {
-  const { user } = useFirebase();
+  const { user } = useAuth();
 
   useEffect(() => {
     fetch(`http://localhost:5000/myOrder/${user?.email}`)

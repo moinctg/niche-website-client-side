@@ -10,6 +10,9 @@ import Register from './Pages/Login/Register/Register';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import AddServices from './Pages/Dashboard/AddServices/AddServices';
+import NotFound from './Pages/NotFound/NotFound';
+import Booking from './Pages/Booking/Booking';
+import Dashbaord from './Pages/Dashboard/Dashboard/Dashbaord';
 
 
 function App() {
@@ -38,13 +41,23 @@ function App() {
             <Details></Details>
           </Route> */}
          
+         <PrivateRoute exact path="/order/:serviceId">
+           <Booking></Booking>
+
+         </PrivateRoute>
+         <PrivateRoute exact path="/deshboard">
+         <Dashbaord></Dashbaord>
+
+         </PrivateRoute>
           {/* <Route exact path="/manageOrders">
             <MangeOrder></MangeOrder>
           </Route> */}
           {/* <Route path="/dashboard">
             <Dashbaord></Dashbaord>
           </Route> */}
-          
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
         <Footer></Footer>
       </Router>
