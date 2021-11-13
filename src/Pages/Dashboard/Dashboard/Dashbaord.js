@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import "./Dashboard.css";
-import AddServices from "./../AddServices/AddServices";
-import Review from "./../Review/Review";
-import MyBookings from "./../MyBookings/MyBookings";
-import MakeAdmin from "./../MakeAdmin/MakeAdmin";
-import ManageServices from "./../ManageServices/ManageServices";
+
+
+
+
 import useAuth from "../../../hooks/useAuth";
+import AddServices from "../AddServices/AddServices";
+import ManageServices from "../ManageServices/ManageServices";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import Review from "../Review/Review";
+import MyBooking  from "../MyBookings/MyBookings";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -64,13 +68,13 @@ const Dashbaord = () => {
           <div className="col-md-9">
             <Switch>
               <Route exact path={path}>
-                <MyBookings></MyBookings>
+               <MyBooking></MyBooking>
               </Route>
               <Route exact path={`${path}/review`}>
-                <Review></Review>
+              <Review></Review>
               </Route>
               <Route exact path={`${path}/BookingList`}>
-                <MyBookings></MyBookings>
+                <MyBooking></MyBooking>
               </Route>
               <Route exact path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
