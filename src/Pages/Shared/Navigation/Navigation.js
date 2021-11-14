@@ -42,14 +42,8 @@ const Navigation = () => {
                                         </ul>
                                     </li>
                                    
-                                    <li><a href="#">Services</a>
-                                        <ul className="submenu">
-                                            <li><a href="">Login</a></li>
-                                            <li><a href="">Cart</a></li>
-                                            <li><a href="">Element</a></li>
-                                            <li><a href="">Confirmation</a></li>
-                                            <li><a href="">Product Checkout</a></li>
-                                        </ul>
+                                    <li><Link  to="/service">Services</Link>
+                                       
                                     </li>
                                     <li><Link to ="/contact">Contact</Link></li>
                                 </ul>
@@ -66,7 +60,11 @@ const Navigation = () => {
                                 
                                 {
                                  user?.email? 
-                                 <button className="text-primary" onClick={logout}> Logout</button>: 
+                                 <div>   <button className="text-primary" onClick={logout}> Logout</button>
+                                  <Link to ="/deshboard"><span className="flaticon-user"></span>Deshboard</Link>
+                                 
+                                 </div>
+                               : 
                                  <li> < Link to ="/login"><span className="flaticon-user"></span>Login</Link> <br/>
                                  <button className="text-warning"> {user?.displayName}</button>
                                  

@@ -16,10 +16,10 @@ import MyBooking  from "../MyBookings/MyBookings";
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
   const { user } = useAuth();
-  const [isAdmi, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+    fetch(`https://sleepy-tor-93619.herokuapp.com/checkAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data[0]?.role === "admin") {
@@ -29,7 +29,7 @@ const Dashbaord = () => {
         }
       });
   }, [user?.email]);
-  console.log(isAdmi);
+  console.log(isAdmin);
   return (
     <div>
       <div className="dashboard-container ">
@@ -51,7 +51,7 @@ const Dashbaord = () => {
               <div className="admin-dashboard">
                 <li className="dashboard-menu mt-5">Orders list</li>
 
-                {isAdmi && (
+                {isAdmin && (
                   <Link to={`${url}/addService`}>
                     <li className="dashboard-menu">Add Service</li>
                   </Link>

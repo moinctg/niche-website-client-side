@@ -7,7 +7,7 @@ const Review = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const { user } = useAuth
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addSReview", {
+    fetch("https://sleepy-tor-93619.herokuapp.com/addSReview", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
