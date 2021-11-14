@@ -1,23 +1,23 @@
 import React from "react";
 import "./MakeAdmin.css";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 const MakeAdmin = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  // const { register, handleSubmit, watch, errors } = useForm();
 
-  const onSubmit = (data) => {
-    fetch("https://sleepy-tor-93619.herokuapp.com/makeAdmin", {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result));
-    console.log(data);
-  };
+  // const onSubmit = (data) => {
+  // //   fetch("https://sleepy-tor-93619.herokuapp.com/makeAdmin", {
+  // //     method: "PUT",
+  // //     headers: { "content-type": "application/json" },
+  // //     body: JSON.stringify(data),
+  // //   })
+  // //     .then((res) => res.json())
+  // //     .then((result) => console.log(result));
+  // //   console.log(data);
+  //  };
   return (
     <div>
       <h1>make admin</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="input-field"
           name="email"
@@ -32,7 +32,7 @@ const MakeAdmin = () => {
           type="submit"
           value="make as Admin"
         />
-      </form>
+      </form> */}
     </div>
   );
 };

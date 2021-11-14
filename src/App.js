@@ -17,6 +17,10 @@ import Dashbaord from './Pages/Dashboard/Dashboard/Dashbaord';
 import About from './Pages/Home/About/About';
 import Contact from './Pages/Home/Contact/Contact';
 import Services from './Pages/Home/Services/Services';
+import DeshboardHome from './Pages/Dashboard/Dashboard/DeshboardHome';
+import MangeOrder from './Pages/Dashboard/MangeOrder/MangeOrder';
+import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 
 function App() {
@@ -58,15 +62,22 @@ function App() {
          <AddServices></AddServices>
          </PrivateRoute>
          <PrivateRoute exact path="/deshboard">
-         <Dashbaord></Dashbaord>
+         <DeshboardHome></DeshboardHome>
          </PrivateRoute>
          <PrivateRoute exact path="/service">
           <Services></Services>
          </PrivateRoute>
+         <PrivateRoute exact path="/manageOrders">
+         <MangeOrder></MangeOrder>
+         </PrivateRoute>
+         <AdminRoute exact path="/makeAdmin">
+           <MakeAdmin></MakeAdmin>
+
+         </AdminRoute>
          
-          <Route path="*">
+          {/* <Route exact path=" * ">
             <NotFound></NotFound>
-          </Route>
+          </Route> */}
         </Switch>
         <Footer></Footer>
       </Router>

@@ -74,7 +74,7 @@ const Navigation = () => {
                                 }
                                  
 
-                                <li><a href=""><span className="flaticon-shopping-cart"> Shoping Cart</span></a> </li>
+                                {/* <li><Link to=""><span className="flaticon-shopping-cart"> Shoping Cart</span></Link> </li> */}
                             </ul>
                         </div>
                     </div>
