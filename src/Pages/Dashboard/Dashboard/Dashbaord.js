@@ -13,6 +13,8 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import Review from "../Review/Review";
 import MyBooking  from "../MyBookings/MyBookings";
 import MangeOrder from "../MangeOrder/MangeOrder";
+import ManageOrders from "../ManageOrders/ManageOrders";
+import Payment from "../payment/Payment";
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -49,7 +51,13 @@ const Dashbaord = () => {
               <Link to={`${url}/review`}>
                 <li className="dashboard-menu mt-5">Review</li>
               </Link>
-              <Link to={`${url}/manageOrders`}>
+              <Link to={`${url}/payment`}>
+                <li className="dashboard-menu mt-5">Payment</li>
+              </Link>
+              <Link to={`${url}/statusOrders`}>
+                <li className="dashboard-menu mt-5">status Order</li>
+              </Link>
+              <Link to={`${url}/ManageOrders`}>
                 <li className="dashboard-menu mt-5">Manage Order</li>
               </Link>
               <div className="admin-dashboard">
@@ -80,12 +88,18 @@ const Dashbaord = () => {
               <Route  path={`${path}/BookingList`}>
                 <MyBooking></MyBooking>
               </Route>
+              <Route  path={`${path}/payment`}>
+              <Payment></Payment>
+              </Route>
               <Route  path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
               </Route>
               
-              <Route  path={`${path}/manageOrders`}>
+              <Route  path={`${path}/statusOrders`}>
                 <MangeOrder></MangeOrder>
+              </Route>
+              <Route  path={`${path}/manageOrders`}>
+              <ManageOrders></ManageOrders>
               </Route>
 
               <Route  path={`${path}/addService`}>
