@@ -10,17 +10,13 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Register from './Pages/Login/Register/Register';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
-import AddServices from './Pages/Dashboard/AddServices/AddServices';
 import NotFound from './Pages/NotFound/NotFound';
-import Booking from './Pages/Booking/Booking';
-import Dashbaord from './Pages/Dashboard/Dashboard/Dashbaord';
+import Details from './Pages/Booking/Details';
 import About from './Pages/Home/About/About';
 import Contact from './Pages/Home/Contact/Contact';
 import Services from './Pages/Home/Services/Services';
-import DeshboardHome from './Pages/Dashboard/Dashboard/DeshboardHome';
-import MangeOrder from './Pages/Dashboard/MangeOrder/MangeOrder';
 import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
-import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import Dashbaord from './Pages/Dashboard/Dashboard/Dashbaord';
 
 
 function App() {
@@ -56,24 +52,19 @@ function App() {
           </Route> */}
          
          <PrivateRoute exact path="/order/:serviceId">
-           <Booking></Booking>
+         <Details></Details>
          </PrivateRoute>
-         <PrivateRoute exact path="/addSerives">
+         {/* <PrivateRoute exact path="/addSerives">
          <AddServices></AddServices>
-         </PrivateRoute>
-         <PrivateRoute exact path="/deshboard">
-         <DeshboardHome></DeshboardHome>
+         </PrivateRoute> */}
+         <PrivateRoute  path="/deshboard">
+        <Dashbaord></Dashbaord>
          </PrivateRoute>
          <PrivateRoute exact path="/service">
           <Services></Services>
          </PrivateRoute>
-         <PrivateRoute exact path="/manageOrders">
-         <MangeOrder></MangeOrder>
-         </PrivateRoute>
-         <AdminRoute exact path="/makeAdmin">
-           <MakeAdmin></MakeAdmin>
-
-         </AdminRoute>
+         
+         
          
           {/* <Route exact path=" * ">
             <NotFound></NotFound>

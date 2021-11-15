@@ -1,22 +1,34 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import axios from 'axios';
 
 
 const Review = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors,reset } = useForm();
   const { user } = useAuth
   const onSubmit = (data) => {
-    fetch("https://sleepy-tor-93619.herokuapp.com/addSReview", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result));
+  //   fetch("https://sleepy-tor-93619.herokuapp.com/addSReview", {
+  //     method: "POST",
+  //     headers: { "content-type": "application/json" },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => console.log(result));
 
-    console.log(data);
-  };
+  //   console.log(data);
+  // };
+  axios.post('https://sleepy-tor-93619.herokuapp.com/addOrders', data)
+  .then(res => {
+      if (res.data.insertedId) {
+          alert('added successfully');
+          reset();
+      }
+  })
+}
+  
+
+
   return (
     <div>
       <h1>Review</h1>

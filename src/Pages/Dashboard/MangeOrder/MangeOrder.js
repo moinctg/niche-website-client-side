@@ -16,6 +16,12 @@ const MangeOrder = () => {
       .then((data) => setOrders(data));
   }, []);
 
+  const handleUpdate = (id) =>{
+    console.log(id)
+
+  }
+
+
   // const status = "apporved";
   const handleOrderId = (id) => {
     setOrderId(id);
@@ -32,6 +38,7 @@ const MangeOrder = () => {
       .then((res) => res.json())
       .then((result) => console.log(result));
   };
+ 
 
   return (
     <div className="container">
@@ -69,7 +76,7 @@ const MangeOrder = () => {
                 </form>
               </td>
               <button className="btn bg-danger p-2">Delete</button>
-              <button className="btn bg-success p-2">Update</button>
+              <button onClick={()=>handleUpdate(pd._id)} className="btn bg-success p-2">Update</button>
             </tr>
           </tbody>
         ))}

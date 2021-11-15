@@ -25,7 +25,7 @@ const Services = () => {
                 <p>{pd.price}</p>
                 <Link to={`/order/${pd._id}`}>
                   {" "}
-                  <button className="btn btn-success">Order Now</button>
+                  <button className="button button-contactForm boxed-btn">Order Now</button>
                 </Link>
               </div>
             </div>

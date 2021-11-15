@@ -1,5 +1,5 @@
 import React from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
@@ -60,13 +60,14 @@ const Navigation = () => {
                                 
                                 {
                                  user?.email? 
-                                 <div>   <button className="text-primary" onClick={logout}> Logout</button>
-                                  <Link to ="/deshboard"><span className="flaticon-user"></span>Deshboard</Link>
+                                 <div>   <button className=" button button-contactForm boxed-btn" onClick={logout}> Logout</button>
+                                  <Link to ="/deshboard"><span className="flaticon-user  text-danger "></span>Deshboard</Link> 
+                                  <p> Signed in as: <Link className=" text-danger " to="/login">{user?.displayName}</Link></p>
                                  
                                  </div>
                                : 
-                                 <li> < Link to ="/login"><span className="flaticon-user"></span>Login</Link> <br/>
-                                 <button className="text-warning"> {user?.displayName}</button>
+                                 <li> < Link to ="/login"><span className="flaticon-user text-danger "></span>Login</Link> <br/>
+                                
                                  
                                  </li>
                                 

@@ -70,7 +70,7 @@ const Register = () => {
     <input type="password" class="form-control" onBlur={handleOnBlur} id="password2"  name="password" placeholder="Re-Type Password" required/>
   </div>
   
-  <button type="submit" class="btn_3">Submit</button>
+  <button type="submit" class="button button-contactForm boxed-btn">Submit</button>
 </form>
         
            
@@ -83,7 +83,7 @@ const Register = () => {
                         <NavLink
                             style={{ textDecoration: 'none' }}
                             to="/login">
-                            <button className="text-primary">Already Registered? Please Login</button>
+                            <button className="button button-contactForm boxed-btn">Already Registered? Please Login</button>
                         </NavLink>
                     
                     {isLoading &&   <spinner animation="grow" variant="light" />}

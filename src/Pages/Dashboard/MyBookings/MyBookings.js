@@ -20,7 +20,8 @@ const MyBookings = () => {
       key = {order.id}
       >
         <h3>Order Name: {order.name}</h3>
-        <h3>Order Name: {order.Email}</h3>
+        <p>Order Description: {order.description}</p>
+        <p>price: {order.price}</p>
         </div>
           )
       }

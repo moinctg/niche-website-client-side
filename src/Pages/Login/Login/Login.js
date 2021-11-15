@@ -58,7 +58,7 @@ const Login = () => {
   </div>
  
  
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="button button-contactForm boxed-btn">Submit</button>
 </form>
         
                         </div>
@@ -71,14 +71,14 @@ const Login = () => {
                         <NavLink 
                             style={{ textDecoration: 'none', color:'black'}}
                             to="/register">
-                            <button className="text-primary">New User? Please Register</button>
+                            <button className="button button-contactForm boxed-btn ">New User? Please Register</button>
                         </NavLink>
                         {isLoading && <spinner animation="grow" variant="light" />}
                         {user?.email && <alert severity="success">Login successfully!</alert>}
                         {authError && <alert severity="error">{authError}</alert>}
                    
                     <p>------------------------</p>
-                    <button className="text-primary" onClick={handleGoogleSignIn}>Google Sign In</button> 
+                    <button className="button button-contactForm boxed-btn" onClick={handleGoogleSignIn}>Google Sign In</button> 
                     </div>
                     </div>
             
