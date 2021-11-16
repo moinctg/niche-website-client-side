@@ -33,7 +33,7 @@ const ReviewPage = () => {
                 {/* <div className="service-img">
                   <img className="w-50" src={pd?.image} alt="" />
                 </div> */}
-                <h1>{pd.name}</h1>
+                <h1>{user?.name}</h1>
                 <p>{pd.email}</p>
                 <p>{pd.comments}</p>
                 

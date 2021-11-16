@@ -18,7 +18,7 @@ const Review = () => {
 
   //   console.log(data);
   // };
-  axios.post('https://sleepy-tor-93619.herokuapp.com/addOrders', data)
+  axios.post('https://sleepy-tor-93619.herokuapp.com/addReview', data)
   .then(res => {
       if (res.data.insertedId) {
           alert('added successfully');

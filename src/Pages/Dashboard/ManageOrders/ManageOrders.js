@@ -2,9 +2,9 @@ import React  from 'react';
 import react, { useState, useEffect } from "react";
 
 import "./ManageOrders.css";
-import { useParams } from "react-router-dom";
+
 const ManageOrders = () => {
-  const {ordersId} = useParams();
+
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -12,13 +12,23 @@ const ManageOrders = () => {
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
-  const handleDelete = id =>{
-    const url = `https://sleepy-tor-93619.herokuapp.com/allOrders${id}`;
+
+  const handleDelete = id => {
+    const url = `https://sleepy-tor-93619.herokuapp.com/allOrders/${id}`;
     fetch(url,{
       method:"DELETE"
     })
     .then(res=>res.json())
-    .then(data=>setOrders(data))
+    .then(data=> {
+      console.log(data);
+     if(data.deleteCount){
+       alert('Order Succefully Deleted')
+       const remaining = orders.filter=(order=>order._id !== id);
+       setOrders(remaining)
+     }
+
+     })
+  
 
   }
   // console.log(orders);
@@ -45,7 +55,7 @@ const ManageOrders = () => {
               <td>{pd.description}</td>
               <td>{pd.image}</td>
               
-              <button onClick={()=>handleDelete(pd._id)} className="btn bg-danger p-2">Delete</button>
+              <button onClick={()=> handleDelete(pd._id)} className="btn bg-danger p-2">Delete</button>
               </tr>
           </tbody>
         ))}
