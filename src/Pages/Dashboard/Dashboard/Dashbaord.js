@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React  from 'react';
+import react, { useEffect, useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import "./Dashboard.css";
-
-
-
-
 import useAuth from "../../../hooks/useAuth";
 import AddServices from "../AddServices/AddServices";
 import ManageServices from "../ManageServices/ManageServices";
@@ -14,7 +11,8 @@ import Review from "../Review/Review";
 import MyBooking  from "../MyBookings/MyBookings";
 import MangeOrder from "../MangeOrder/MangeOrder";
 import ManageOrders from "../ManageOrders/ManageOrders";
-import Payment from "../payment/Payment";
+import Payment from "../Payment/Payment";
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -91,23 +89,26 @@ const Dashbaord = () => {
               <Route  path={`${path}/payment`}>
               <Payment></Payment>
               </Route>
-              <Route  path={`${path}/makeAdmin`}>
+              {/* <Route  path={`${path}/makeAdmin`}>
                 <MakeAdmin></MakeAdmin>
-              </Route>
+              </Route> */}
+              <AdminRoute  path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
+              </AdminRoute>
               
-              <Route  path={`${path}/statusOrders`}>
+              {/* <Route  path={`${path}/statusOrders`}>
                 <MangeOrder></MangeOrder>
-              </Route>
-              <Route  path={`${path}/manageOrders`}>
+              </Route> */}
+              <AdminRoute  path={`${path}/statusOrders`}>
               <ManageOrders></ManageOrders>
-              </Route>
-
-              <Route  path={`${path}/addService`}>
-                <AddServices></AddServices>
-              </Route>
-              <Route  path={`${path}/manageServices`}>
-                <ManageServices></ManageServices>
-              </Route>
+              </AdminRoute>
+              <AdminRoute  path={`${path}/addService`}>
+              <AddServices></AddServices>
+              </AdminRoute>
+            
+              <AdminRoute  path={`${path}/manageServices`}>
+              <ManageServices></ManageServices>
+              </AdminRoute>
             </Switch>
           </div>
         </div>

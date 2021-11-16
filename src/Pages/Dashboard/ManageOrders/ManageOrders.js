@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import {usePharms} from 'react-router-dom'
+import React  from 'react';
+import react, { useState, useEffect } from "react";
+
 import "./ManageOrders.css";
+import { useParams } from "react-router-dom";
 const ManageOrders = () => {
-  const {ordersId} = usePharms();
+  const {ordersId} = useParams();
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -16,16 +18,16 @@ const ManageOrders = () => {
       method:"DELETE"
     })
     .then(res=>res.json())
-    .then(data=>console.log(data))
+    .then(data=>setOrders(data))
 
   }
-  console.log(orders);
+  // console.log(orders);
   return (
    
      <div className="container">
       <h1>All orders {orders.length}</h1>
 
-      <Table striped bordered hover>
+      <table striped bordered hover>
         <thead>
           <tr>
             <th>#</th>
@@ -47,7 +49,7 @@ const ManageOrders = () => {
               </tr>
           </tbody>
         ))}
-      </Table>
+      </table>
       </div>
   );
 };

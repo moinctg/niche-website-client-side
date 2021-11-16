@@ -1,3 +1,4 @@
+import React  from 'react';
 import loginImg from '../../../img/gallery/new_product1.png'
 import react  ,{useState}  from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';

@@ -1,16 +1,30 @@
 import React from 'react';
-
+import react, { useEffect, useState } from "react";
+import useAuth from '../../../hooks/useAuth';
 const ReviewPage = () => {
     const [revies, setReives] = useState([]);
+    const {user} = useAuth();
   useEffect(() => {
-    fetch("http://localhost:8000/allReview")
+    fetch("https://sleepy-tor-93619.herokuapp.com/allReview")
       .then((res) => res.json())
       .then((data) => setReives(data));
   }, []);
   console.log(revies);
     return (
-        <div>
-      <h1>Customer Revies</h1>
+      <div>
+      <div className="slider-area ">
+      <div className="single-slider slider-height2 d-flex align-items-center">
+          <div className="container">
+              <div className="row">
+                  <div className="col-xl-12">
+                      <div className="hero-cap text-center">
+                          <h2>Customer Revies</h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
       <div className="services">
         <div className="row container">
           {revies?.map((pd, index) => (
@@ -28,7 +42,9 @@ const ReviewPage = () => {
           ))}
         </div>
       </div>
-    </div>
+      </div>
+ 
+
     );
 };
 

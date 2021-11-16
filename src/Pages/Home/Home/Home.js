@@ -5,6 +5,7 @@ import Banner from '../Banner/Banner';
 import Choice from '../Choice/Choice';
 import Contact from '../Contact/Contact';
 import Services from '../Services/Services'
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <About></About>
             <Services></Services>
             <Choice></Choice>
+            <ReviewPage></ReviewPage>
 
             <Contact></Contact>
           

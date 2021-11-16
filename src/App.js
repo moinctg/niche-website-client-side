@@ -1,11 +1,10 @@
-
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthProvider from '.././src/context/AuthProvider';
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import Home from './Pages/Home/Home/Home';
-
 import Footer from './Pages/Shared/Footer/Footer';
 import Register from './Pages/Login/Register/Register';
 import Login from './Pages/Login/Login/Login';
@@ -29,19 +28,19 @@ function App() {
           <Route exact path="/">
            <Home></Home>
           </Route>
-          <Route exact path="/home">
+          <Route  path="/home">
             <Home></Home>
          </Route> 
-          <Route exact path="/about">
+          <Route  path="/about">
            <About></About>
          </Route> 
-          <Route exact path="/contact">
+          <Route  path="/contact">
           <Contact></Contact>
          </Route> 
-           <Route exact path="/register">
+           <Route path="/register">
             <Register></Register>
           </Route> 
-           <Route exact path="/login">
+           <Route  path="/login">
           <Login></Login>
           </Route> 
           {/* <Route exact path="/addServices">
@@ -51,7 +50,7 @@ function App() {
             <Details></Details>
           </Route> */}
          
-         <PrivateRoute exact path="/order/:serviceId">
+         <PrivateRoute  path="/order/:serviceId">
          <Details></Details>
          </PrivateRoute>
          {/* <PrivateRoute exact path="/addSerives">
