@@ -21,29 +21,31 @@ const ManageServices = () => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-  console.log(data);
 
-  const handleDelete = id => {
+
+  const handleDelete =(id,e) => {
+
     const proceed = window.confirm('Are you sure, you want to delete?');
     if(proceed){
-      const url = `https://sleepy-tor-93619.herokuapp.com/allServices/${id}`;
+      const url = `http://localhost:8000/allservicesdelete/${id}`;
     fetch(url,{
-      method:"DELETE",
+      method:'DELETE'
 
     })
     .then(res=>res.json())
     .then(data=> {
-     if(data.deletetedCount > 0){
+     if(data.deletedCount > 0){
        alert('Service Succefully Deleted')
        const remaining = services.filter=(service=>service._id !== id);
        setServices(remaining);
      }
 
-     });
+     })
     }
-  
+   e.preventDefualt();
 
   }
+  
 
   const onSubmit = (data) => {
     console.log(data);
@@ -76,7 +78,7 @@ const ManageServices = () => {
 
   
 
-  }
+
   return (
     <div className="container">
       <h1>All Services {services.length}</h1>
@@ -145,10 +147,13 @@ const ManageServices = () => {
             
           </tr>
         </thead>
-        {services?.map((pd, index) => (
+        
+      
           <tbody>
+            {
+              services.map(pd => (
             <tr>
-              <td>{index}</td>
+              {/* <td>{index}</td> */}
               <td>{pd.name}</td>
               <td>{pd.description}</td>
               <td>{pd.image}</td>
@@ -158,8 +163,9 @@ const ManageServices = () => {
               <button onClick={()=> handleDelete(pd._id)} className="button button-contactForm boxed-btn p-2">Delete</button>
               <button onClick={()=> handleUpdate(pd._id)} className="button button-contactForm boxed-btn p-2">Update</button>
               </tr>
+              ))}
           </tbody>
-        ))}
+        
       </table>
       </div>
       
