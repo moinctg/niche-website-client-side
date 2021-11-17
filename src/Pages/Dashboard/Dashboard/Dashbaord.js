@@ -40,26 +40,26 @@ const Dashbaord = () => {
         {/* <div className="row">
           <div className="col-md-3 "> */}
 
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 
-       <a class="sidebar-brand d-flex align-items-center justify-content-center" Link to="/deshboard">
-         <div class="sidebar-brand-icon rotate-n-15">
-           <i class="fas fa-laugh-wink"></i>
+       <a className="sidebar-brand d-flex align-items-center justify-content-center" Link to="/deshboard">
+         <div className="sidebar-brand-icon rotate-n-15">
+           <i className="fas fa-laugh-wink"></i>
          </div>
-         <div class="sidebar-brand-text mx-3">Dashboard <sup>2</sup></div>
+         <div className="sidebar-brand-text mx-3">Dashboard <sup></sup></div>
        </a>
 
 
-       <hr class="sidebar-divider my-0" />
+       <hr className="sidebar-divider my-0" />
 
     
 
 
-       <li class="nav-item">
-         <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapsePages"
+       <li className="nav-item">
+         <a className="nav-link collapsed"  data-toggle="collapse" data-target="#collapsePages"
            aria-expanded="true" aria-controls="collapsePages">
-           <i class="fas fa-fw fa-folder"></i>
+           <i className="fas fa-fw fa-folder"></i>
            <span>Pages</span>
          </a>
         
@@ -410,9 +410,9 @@ const Dashbaord = () => {
                 <MakeAdmin></MakeAdmin>
               </Route>
 
-              <Route path={`${path}/statusOrders`}>
+              <AdminRoute path={`${path}/statusOrders`}>
                 <MangeOrder></MangeOrder>
-              </Route>
+              </AdminRoute>
               <Route path={`${path}/manageOrders`}>
                 <ManageOrders></ManageOrders>
               </Route>
@@ -428,7 +428,7 @@ const Dashbaord = () => {
             </Switch>
 
 
-           {/* <div class="row"> */}
+           {/* <div className"row"> */}
 
 
              {/* <div class="col-lg-6 mb-4">
@@ -594,25 +594,25 @@ const Dashbaord = () => {
 
 
 
-     <a class="scroll-to-top rounded" href="#page-top">
-       <i class="fas fa-angle-up"></i>
+     <a className="scroll-to-top rounded" href="#page-top">
+       <i className="fas fa-angle-up"></i>
      </a>
 
 
-     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     <div className="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
        aria-hidden="true">
-       <div class="modal-dialog" role="document">
-         <div class="modal-content">
-           <div class="modal-header">
-             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+       <div className="modal-dialog" role="document">
+         <div className="modal-content">
+           <div className="modal-header">
+             <h5 className="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+             <button className="close" type="button" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">×</span>
              </button>
            </div>
-           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-           <div class="modal-footer">
-             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-             <a class="btn btn-primary" href="login.html">Logout</a>
+           <div className="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+           <div className="modal-footer">
+             <button className="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+             <a className="btn btn-primary" href="login.html">Logout</a>
            </div>
          </div>
        </div>

@@ -22,6 +22,7 @@ const MyBookings = () => {
         <h3>Order Name: {order.name}</h3>
         <p>Order Description: {order.description}</p>
         <p>price: {order.price}</p>
+        <p className="text-warning">Staus: {order.status}</p>
         </div>
           )
       }

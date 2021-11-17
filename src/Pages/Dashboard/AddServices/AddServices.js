@@ -70,7 +70,7 @@ const AddServices = () => {
                 <input
                   type="submit"
                   value="Add"
-                  className="btn btn-info w-50"
+                  className="button button-contactForm boxed-btn w-50"
                 />
               </form>
             </div>
