@@ -36,7 +36,7 @@ const ManageServices = () => {
     .then(data=> {
      if(data.deletedCount > 0){
        alert('Service Succefully Deleted')
-       const remaining = services.filter=(service=>service._id !== id);
+       const remaining = services.filter(service=>service._id !== id);
        setServices(remaining);
      }
 
@@ -156,7 +156,7 @@ const ManageServices = () => {
               {/* <td>{index}</td> */}
               <td>{pd.name}</td>
               <td>{pd.description}</td>
-              <td>{pd.image}</td>
+              <td> <img src={pd.image} alt="" style={{height:'150px'}}/> </td>
               <td>{pd.price}</td>
               <td>{pd.model}</td>
               

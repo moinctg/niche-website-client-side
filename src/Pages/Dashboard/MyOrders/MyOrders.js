@@ -1,23 +1,24 @@
-import React  from 'react';
+
+import React from 'react';
 import react, { useState, useEffect } from "react";
+import useAuth from '../../../hooks/useAuth';
 
-import "./ManageOrders.css";
-// import { set } from 'react-hook-form';
 
-const ManageOrders = () => {
+const MyOrders = () => {
+    const { user } = useAuth();
+    const [orders, setOrders] = useState([]);
 
-  const [orders, setOrders] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:8000/myOrder/${user?.email}`)
+          .then((res) => res.json())
+          .then((data) => setOrders(data));
+      }, [user?.email]);
 
-  useEffect(() => {
-    fetch("https://sleepy-tor-93619.herokuapp.com/allOrders")
-      .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, []);
 
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure, you want to delete?');
     if(proceed){
-      const url = `https://sleepy-tor-93619.herokuapp.com/allOrders/${id}`;
+      const url = `http://localhost:8000/myOrder/${id}`;
     fetch(url,{
       method:'DELETE'
     })
@@ -39,13 +40,12 @@ const ManageOrders = () => {
   
 
   }
-  // console.log(orders);
-  return (
-   
-     <div className="container">
-      <h1>All orders {orders.length}</h1>
 
-      <table striped bordered hover>
+    return (
+        <div className="container">
+      <h1> My  Orders {orders.length}</h1>
+
+      <table className="table table-bordered ">
         <thead>
           <tr>
             <th>#</th>
@@ -61,7 +61,7 @@ const ManageOrders = () => {
               <td>{index}</td>
               <td>{pd.name}</td>
               <td>{pd.description}</td>
-              <img src={pd.image} alt="" style={{height:'150px'}}/>
+             <td> <img src={pd.image} alt="" style={{height:'150px'}}/> </td>
            
               <button onClick={()=> handleDelete(pd._id)} className="btn bg-danger p-2">Delete</button>
               </tr>
@@ -69,7 +69,7 @@ const ManageOrders = () => {
         ))}
       </table>
       </div>
-  );
+    );
 };
 
-export default ManageOrders;
+export default MyOrders;

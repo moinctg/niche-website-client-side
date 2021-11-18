@@ -17,7 +17,7 @@ const MyBookings = () => {
       <h1>My Orders: {orders.length}</h1>
 
 
-      <table className="table table-bordered ">
+      <table className="table table-bordered  ">
         <thead className="text-secondary">
           <tr>
             <th>#</th>

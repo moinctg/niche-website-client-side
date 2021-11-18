@@ -1,4 +1,5 @@
 import React  from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import react, { useEffect, useState } from "react";
 import { Switch, Route, NavLink, useRouteMatch } from "react-router-dom";
 
@@ -13,6 +14,7 @@ import MangeOrder from "../MangeOrder/MangeOrder";
 import ManageOrders from "../ManageOrders/ManageOrders";
 import Payment from "../Payment/Payment";
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import MyOrders from '../MyOrders/MyOrders';
 
 const Dashbaord = () => {
   let { path, url } = useRouteMatch();
@@ -77,10 +79,11 @@ const Dashbaord = () => {
               <NavLink to={`${url}/payment`}>
                 <li className="dashboard-menu nav-link">Payment</li>
               </NavLink>
-              
-              <NavLink to={`${url}/ManageOrders`}>
-                <li className="dashboard-menu nav-link">Manage Order</li>
+              <NavLink to={`${url}/myOrder`}>
+                <li className="dashboard-menu nav-link">My Orders</li>
               </NavLink>
+              
+              
               
                 {isAdmin && <div>
                   
@@ -94,6 +97,9 @@ const Dashbaord = () => {
                   <NavLink to={`${url}/makeAdmin`}>
                   <li className="dashboard-menu  nav-link">Make Admin</li>
                 </NavLink>
+                <NavLink to={`${url}/ManageOrders`}>
+                <li className="dashboard-menu nav-link">Manage Order</li>
+              </NavLink>
                 <NavLink to={`${url}/manageServices`}>
                   <li className="dashboard-menu  nav-link">Manage Service</li>
                 </NavLink>
@@ -411,6 +417,9 @@ const Dashbaord = () => {
               </Route>
               <Route path={`${path}/payment`}>
                 <Payment></Payment>
+              </Route>
+              <Route path={`${path}/myOrder`}>
+               <MyOrders></MyOrders>
               </Route>
 
               <Route path={`${path}/makeAdmin`}>

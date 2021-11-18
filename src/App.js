@@ -16,6 +16,7 @@ import Contact from './Pages/Home/Contact/Contact';
 import Services from './Pages/Home/Services/Services';
 import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
 import Dashbaord from './Pages/Dashboard/Dashboard/Dashbaord';
+import MoreServices from './Pages/Home/MoreServices/MoreServices';
 
 
 function App() {
@@ -59,8 +60,11 @@ function App() {
          <PrivateRoute  path="/deshboard">
         <Dashbaord></Dashbaord>
          </PrivateRoute>
-         <PrivateRoute exact path="/service">
+         <PrivateRoute exact path="/services">
           <Services></Services>
+         </PrivateRoute>
+         <PrivateRoute exact path="/products">
+          <MoreServices></MoreServices>
          </PrivateRoute>
          
          

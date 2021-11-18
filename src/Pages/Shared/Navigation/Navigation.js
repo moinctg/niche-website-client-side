@@ -42,7 +42,7 @@ const Navigation = () => {
                                         </ul>
                                     </li> */}
                                    
-                                    <li><Link  to="/service">Services</Link>
+                                    <li><Link  to="/products">Products</Link>
                                        
                                     </li>
                                     <li><Link to ="/contact">Contact</Link></li>

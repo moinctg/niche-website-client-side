@@ -5,7 +5,7 @@ import './Services.css';
 const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("https://sleepy-tor-93619.herokuapp.com/allServices")
+    fetch("http://localhost:8000/allServices")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -18,7 +18,7 @@ const Services = () => {
                     <div className="row">
                         <div className="col-xl-12">
                             <div className="hero-cap text-center">
-                                <h2>Our Services</h2>
+                                <h2>Our Products</h2>
                             </div>
                         </div>
                     </div>
