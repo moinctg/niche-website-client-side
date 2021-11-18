@@ -16,7 +16,7 @@ const AddServices = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("https://sleepy-tor-93619.herokuapp.com/allServices",data)
+    axios.post("https://sleepy-tor-93619.herokuapp.com/addServices",data)
     .then(res => {
       if (res.data.insertedId) {
           alert('added successfully');

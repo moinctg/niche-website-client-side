@@ -8,25 +8,18 @@ const Review = () => {
   const { register, handleSubmit, watch, errors,reset } = useForm();
   const { user } = useAuth
   const onSubmit = (data) => {
-  //   fetch("https://sleepy-tor-93619.herokuapp.com/addSReview", {
-  //     method: "POST",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify(data),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => console.log(result));
-
-  //   console.log(data);
-  // };
-  axios.post('https://sleepy-tor-93619.herokuapp.com/addReview', data)
+    console.log(data);
+  
+  axios.post('http://localhost:8000/addReview', data)
+  
   .then(res => {
       if (res.data.insertedId) {
-          alert('added successfully');
+          alert('Review successfully');
           reset();
       }
   })
+
 }
-  
 
 
   return (

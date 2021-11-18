@@ -35,7 +35,11 @@ const ReviewPage = () => {
                 </div> */}
                 <h1>{user?.name}</h1>
                 <p>{pd.email}</p>
-                <p>{pd.comments}</p>
+                <p>{pd.comments} <br/>
+                  *****
+                
+
+                </p>
                 
               </div>
             </div>

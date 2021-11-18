@@ -15,18 +15,56 @@ const MyBookings = () => {
   return (
     <div>
       <h1>My Orders: {orders.length}</h1>
-      {
-      orders.map(order=><div
-      key = {order.id}
-      >
-        <h3>Order Name: {order.name}</h3>
-        <p>Order Description: {order.description}</p>
-        <p>price: {order.price}</p>
-        <p className="text-warning">Staus: {order.status}</p>
-        </div>
-          )
-      }
-    </div>
+
+
+      <table className="table table-bordered ">
+        <thead className="text-secondary">
+          <tr>
+            <th>#</th>
+            <th>Service Title</th>
+            <th>Event description</th>
+            <th>Image Link</th>
+            <th>Price</th>
+            <th>Model</th>
+            <th className="text-primary">stutus</th>
+            
+            
+          </tr>
+        </thead>
+        
+      
+          <tbody>
+            {
+              orders.map(pd  => (
+            <tr>
+              <td>{pd.index}</td>
+              <td>{pd.name}</td>
+              <td>{pd.description}</td>
+              <td>
+                <img src={pd.image} alt="" style={{height:'150px'}}/>
+                </td>
+              <td>{pd.price}</td>
+              <td>{pd.model}</td>
+              <td>{pd.status}</td>
+              
+      
+      {/* // orders.map(order=><div
+      {/* // key = {order.id} */}
+      
+        {/* // <h3>Order Name: {order.name}</h3>
+        // <p>Order Description: {order.description}</p>
+        // <p>price: {order.price}</p>
+        // <p className="text-warning">Staus: {order.status}</p> */}
+      
+        </tr>
+              ))}
+          </tbody>
+        
+      </table>
+      </div>
+        
+    
+    
   );
 };
 

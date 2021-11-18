@@ -77,28 +77,35 @@ const Dashbaord = () => {
               <NavLink to={`${url}/payment`}>
                 <li className="dashboard-menu nav-link">Payment</li>
               </NavLink>
-              <NavLink to={`${url}/statusOrders`}>
-                <li className="dashboard-menu   nav-link">status Order</li>
-              </NavLink>
+              
               <NavLink to={`${url}/ManageOrders`}>
                 <li className="dashboard-menu nav-link">Manage Order</li>
               </NavLink>
-              <div className="admin-dashboard">
-                <li className="dashboard-menu  nav-link">Orders list</li>
-
-                {isAdmin && (
+              
+                {isAdmin && <div>
+                  
                   <NavLink to={`${url}/addService`}>
                     <li className="dashboard-menu  nav-link">Add Service</li>
                   </NavLink>
-                )}
-                <NavLink to={`${url}/makeAdmin`}>
+                  <NavLink to={`${url}/statusOrders`}>
+                  <li className="dashboard-menu   nav-link">status Order</li>
+                </NavLink>
+              
+                  <NavLink to={`${url}/makeAdmin`}>
                   <li className="dashboard-menu  nav-link">Make Admin</li>
                 </NavLink>
                 <NavLink to={`${url}/manageServices`}>
                   <li className="dashboard-menu  nav-link">Manage Service</li>
                 </NavLink>
                
+
                 </div>
+                 
+              
+                }
+                
+               
+                
                 </li>
             
               
@@ -108,7 +115,7 @@ const Dashbaord = () => {
          
     
 
-
+{/* 
        <li class="nav-item">
          <a class="nav-link" href="charts.html">
            <i class="fas fa-fw fa-chart-area"></i>
@@ -120,7 +127,7 @@ const Dashbaord = () => {
          <a class="nav-link" href="tables.html">
            <i class="fas fa-fw fa-table"></i>
            <span>Tables</span></a>
-       </li>
+       </li> */}
 
 
        
@@ -160,7 +167,7 @@ const Dashbaord = () => {
            <ul class="navbar-nav ml-auto">
 
 
-             <li class="nav-item dropdown no-arrow d-sm-none">
+             {/* <li class="nav-item dropdown no-arrow d-sm-none">
                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  <i class="fas fa-search fa-fw"></i>
@@ -181,7 +188,7 @@ const Dashbaord = () => {
                    </div>
                  </form>
                </div>
-             </li>
+             </li> */}
 
 
              
@@ -189,10 +196,10 @@ const Dashbaord = () => {
              <div class="topbar-divider d-none d-sm-block"></div>
 
 
-             <li class="nav-item dropdown no-arrow">
+             {/* <li class="nav-item dropdown no-arrow">
                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                  <img class="img-profile rounded-circle"
                    src="img/undraw_profile.svg" />
                </a>
@@ -217,7 +224,7 @@ const Dashbaord = () => {
                    Logout
                  </a>
                </div>
-             </li>
+             </li> */}
 
            </ul>
 
@@ -410,9 +417,9 @@ const Dashbaord = () => {
                 <MakeAdmin></MakeAdmin>
               </Route>
 
-              <AdminRoute path={`${path}/statusOrders`}>
+              <Route path={`${path}/statusOrders`}>
                 <MangeOrder></MangeOrder>
-              </AdminRoute>
+              </Route>
               <Route path={`${path}/manageOrders`}>
                 <ManageOrders></ManageOrders>
               </Route>

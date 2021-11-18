@@ -2,16 +2,17 @@ import React from "react";
 import "./MakeAdmin.css";
 import { useForm } from "react-hook-form";
 const MakeAdmin = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors,reset } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://sleepy-tor-93619.herokuapp.com/makeAdmin", {
+    fetch("http://localhost:8000/makeAdmin", {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
+      reset()
     console.log(data);
   };
   return (

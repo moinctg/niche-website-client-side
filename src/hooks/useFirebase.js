@@ -10,7 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const [admin, setAdmin] = useState(false);
+    // const [admin, setAdmin] = useState(false);
     // const [token, setToken] = useState('');
 
     const auth = getAuth();
@@ -82,14 +82,24 @@ const useFirebase = () => {
             }
             setIsLoading(false);
         });
-        return () => unsubscribed;
+        // return () => unsubscribed;
     }, [auth])
 
-    useEffect(() => {
-        fetch(`https://sleepy-tor-93619.herokuapp.com/addUserInfo/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email])
+    // useEffect(() => {
+    //     fetch(`https://sleepy-tor-93619.herokuapp.com/addUserInfo/${user.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setAdmin(data.admin))
+    // }, [user.email])
+
+    const hanldeUserInfoRegister = (email) => {
+        fetch("https://sleepy-tor-93619.herokuapp.com/addUserInfo", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email }),
+        })
+          .then((res) => res.json())
+          .then((result) => console.log(result));
+      };
 
     const logout = () => {
         setIsLoading(true);
@@ -115,7 +125,7 @@ const useFirebase = () => {
 
     return {
         user,
-        admin,
+        // admin,
         // token,
         isLoading,
         authError,

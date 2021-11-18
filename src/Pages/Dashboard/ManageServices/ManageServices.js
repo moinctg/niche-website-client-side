@@ -8,13 +8,13 @@ import "./ManageServices.css";
 const ManageServices = () => {
   const { id } = useParams();
   const [services, setServices] = useState([]);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    watch,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   reset,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
 
   useEffect(() => {
     fetch("https://sleepy-tor-93619.herokuapp.com/allServices")
@@ -23,7 +23,7 @@ const ManageServices = () => {
   }, []);
 
 
-  const handleDelete =(id,e) => {
+  const handleDelete =(id) => {
 
     const proceed = window.confirm('Are you sure, you want to delete?');
     if(proceed){
@@ -42,39 +42,39 @@ const ManageServices = () => {
 
      })
     }
-   e.preventDefualt();
+  
 
   }
   
 
-  const onSubmit = (data) => {
-    console.log(data);
-    axios.post("https://sleepy-tor-93619.herokuapp.com/allServices",data)
-    .then(res => {
-      if (res.data.insertedId) {
-          alert('added successfully');
-          reset();
-      }
-    })
-  }
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  //   axios.post("https://sleepy-tor-93619.herokuapp.com/allServices",data)
+  //   .then(res => {
+  //     if (res.data.insertedId) {
+  //         alert('added successfully');
+  //         reset();
+  //     }
+  //   })
+  // }
 
-  const handleUpdate = id => {
-    const url = `https://sleepy-tor-93619.herokuapp.com/allServices/${id}`;
-    fetch(url,{
-      method:'PUT',
-      headers:{
-        'content-type':'application/json'
-      },
-      body:JSON.stringify(services)
-})
-  .then(res => res.json())
-  .then(data => {
-      if (data.modifiedCount > 0) {
-          alert('Update Successful');
-          setServices({});
-         reset()
-      }
-  })
+//   const handleUpdate = id => {
+//     const url = `https://sleepy-tor-93619.herokuapp.com/allServices/${id}`;
+//     fetch(url,{
+//       method:'PUT',
+//       headers:{
+//         'content-type':'application/json'
+//       },
+//       body:JSON.stringify(services)
+// })
+//   .then(res => res.json())
+//   .then(data => {
+//       if (data.modifiedCount > 0) {
+//           alert('Update Successful');
+//           setServices({});
+//         //  reset()
+//       }
+//   })
 
   
 
@@ -83,7 +83,7 @@ const ManageServices = () => {
     <div className="container">
       <h1>All Services {services.length}</h1>
 
-      <h1 className="mt-5 text-center text-danger">Please Add Services</h1>
+      {/* <h1 className="mt-5 text-center text-danger">Please Add Services</h1>
         <div className=" w-25 m-auto mt-5">
           <div className=" ">
             <div className="">
@@ -130,7 +130,7 @@ const ManageServices = () => {
               </form>
             </div>
           </div>
-        </div>
+        </div> */}
   
     
 
@@ -161,7 +161,7 @@ const ManageServices = () => {
               <td>{pd.model}</td>
               
               <button onClick={()=> handleDelete(pd._id)} className="button button-contactForm boxed-btn p-2">Delete</button>
-              <button onClick={()=> handleUpdate(pd._id)} className="button button-contactForm boxed-btn p-2">Update</button>
+              {/* <button onClick={()=> handleUpdate(pd._id)} className="button button-contactForm boxed-btn p-2">Update</button> */}
               </tr>
               ))}
           </tbody>
@@ -172,5 +172,6 @@ const ManageServices = () => {
       
   );
 };
+
 
 export default ManageServices;

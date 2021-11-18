@@ -35,12 +35,12 @@ const Navigation = () => {
                                 <ul id="navigation">  
                                     <li><Link to ="/home">Home</Link></li>
                                     <li><Link to="/about">about</Link></li>
-                                    <li className="hot"><Link to ="#">Latest</Link>
+                                    {/* <li className="hot"><Link to ="#">Latest</Link>
                                         <ul className="submenu">
                                             <li><a href=""> Product list</a></li>
                                             <li><a href=""> Product Details</a></li>
                                         </ul>
-                                    </li>
+                                    </li> */}
                                    
                                     <li><Link  to="/service">Services</Link>
                                        

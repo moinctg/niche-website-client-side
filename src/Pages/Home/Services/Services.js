@@ -12,7 +12,19 @@ const Services = () => {
   console.log(services);
   return (
     <div>
-      <h1>Services</h1>
+    <div className="slider-area ">
+            <div className="single-slider slider-height2 d-flex align-items-center">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xl-12">
+                            <div className="hero-cap text-center">
+                                <h2>Our Services</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       <div className="services">
         <div className="row container">
           {services?.map((pd, index) => (
@@ -21,9 +33,9 @@ const Services = () => {
                 <div className="service-img">
                   <img className="w-50" src={pd?.image} alt="" />
                 </div>
-                <h1>{pd.name}</h1>
-                <p>{pd.description}</p>
-                <p>{pd.price}</p>
+                <h1>Name:{pd.name}</h1>
+                <p>Description:{pd.description}</p>
+                <p> Price:$ {pd.price}</p>
                 <Link to={`/order/${pd._id}`}>
                   {" "}
                   <button className="button button-contactForm boxed-btn">Order Now</button>
