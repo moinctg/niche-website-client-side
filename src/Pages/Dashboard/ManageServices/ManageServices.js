@@ -27,7 +27,7 @@ const ManageServices = () => {
 
     const proceed = window.confirm('Are you sure, you want to delete?');
     if(proceed){
-      const url = `http://localhost:8000/allservicesdelete/${id}`;
+      const url = `https://sleepy-tor-93619.herokuapp.com/allservicesdelete/${id}`;
     fetch(url,{
       method:'DELETE'
 

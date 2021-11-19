@@ -5,7 +5,7 @@ import react, { useEffect, useState } from "react";
 const MoreServices = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:8000/allService")
+      fetch("https://sleepy-tor-93619.herokuapp.com/allService")
         .then((res) => res.json())
         .then((data) => setServices(data));
     }, []);

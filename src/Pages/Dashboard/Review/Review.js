@@ -10,7 +10,7 @@ const Review = () => {
   const onSubmit = (data) => {
     console.log(data);
   
-  axios.post('http://localhost:8000/addReview', data)
+  axios.post('https://sleepy-tor-93619.herokuapp.com/addReview', data)
   
   .then(res => {
       if (res.data.insertedId) {

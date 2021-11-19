@@ -1,5 +1,5 @@
 import React  from 'react';
-import loginImg from '../../../img/gallery/new_product1.png'
+import loginImg from '../../../img/gallery/register1.jpg'
 import react  ,{useState}  from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth';
@@ -21,10 +21,10 @@ const Register = () => {
     }
     const handleLoginSubmit = e => {
         e.preventDefault();
-        // if (loginData.password !== loginData.password2) {
-        //     alert('Your password did not match');
-        //     return
-        // }
+        if (loginData.password !== loginData.password2) {
+            alert('Your password did not match');
+            return
+        }
         registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
         console.log('success')
@@ -49,7 +49,7 @@ const Register = () => {
               <div class="col-lg-6 col-md-6">
                   <div class="login_part_form">
                       <div class="login_part_form_iner">
-                          <h3>Welcome Back ! <br/>
+                          <h3>Welcome ! Asian Watch Store <br/>
                               Please Register  now</h3>
                           
                               <form onSubmit={handleLoginSubmit}>
@@ -60,7 +60,7 @@ const Register = () => {
   </div>
   <div class="form-group">
   
-    <input type="email" class="form-control" onBlur={handleOnBlur} id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required/><small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <input type="email" class="form-control" onBlur={handleOnBlur} id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required/><small id="emailHelp" class="form-text text-muted"></small>
   </div>
   <div class="form-group">
     
@@ -68,7 +68,7 @@ const Register = () => {
   </div>
   <div class="form-group">
 
-    <input type="password" class="form-control" onBlur={handleOnBlur} id="password2"  name="password" placeholder="Re-Type Password" required/>
+    <input type="password" class="form-control" onBlur={handleOnBlur} id="password2"  name="password2" placeholder="Re-Type Password" required/>
   </div>
   
   <button type="submit" class="button button-contactForm boxed-btn">Submit</button>

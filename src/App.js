@@ -69,9 +69,9 @@ function App() {
          
          
          
-          {/* <Route exact path=" * ">
+          <Route exact path=" * ">
             <NotFound></NotFound>
-          </Route> */}
+          </Route>
         </Switch>
         <Footer></Footer>
       </Router>

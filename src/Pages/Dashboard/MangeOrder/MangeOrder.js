@@ -34,7 +34,7 @@ const MangeOrder = () => {
   const onSubmit = (data,e) => {
     e.preventDefault();
     console.log(data, orderId);
-    setMessage('thank you Status updated');
+    setMessage('thank you Status updated',{color});
     fetch(`https://sleepy-tor-93619.herokuapp.com/statusUpdate/${orderId}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -66,6 +66,7 @@ const MangeOrder = () => {
             <th>Status</th>
           </tr>
         </thead>
+        
         {orders?.map((pd, index) => (
           <tbody>
             <tr>
@@ -87,6 +88,7 @@ const MangeOrder = () => {
                   </select>
                   <input className="button button-contactForm boxed-btn" type="submit" />
                 </form>
+            
               </td>
               {/* <button className="btn bg-danger p-2">Delete</button> */}
               {/* <button onClick={()=>handleUpdate(pd._id)} className="btn bg-success p-2">Update</button> */}

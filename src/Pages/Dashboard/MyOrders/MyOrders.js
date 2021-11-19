@@ -9,7 +9,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/myOrder/${user?.email}`)
+        fetch(`https://sleepy-tor-93619.herokuapp.com/myOrder/${user?.email}`)
           .then((res) => res.json())
           .then((data) => setOrders(data));
       }, [user?.email]);
@@ -18,7 +18,7 @@ const MyOrders = () => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure, you want to delete?');
     if(proceed){
-      const url = `http://localhost:8000/myOrder/${id}`;
+      const url = `https://sleepy-tor-93619.herokuapp.com/myOrder/${id}`;
     fetch(url,{
       method:'DELETE'
     })
