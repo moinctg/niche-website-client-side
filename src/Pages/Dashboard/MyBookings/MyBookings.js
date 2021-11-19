@@ -27,6 +27,9 @@ const MyBookings = () => {
             <th>Price</th>
             <th>Model</th>
             <th className="text-primary">stutus</th>
+            <th>Customer Name</th>
+            <th>Address</th>
+            <th>Contact</th>
             
             
           </tr>
@@ -45,7 +48,10 @@ const MyBookings = () => {
                 </td>
               <td>{pd.price}</td>
               <td>{pd.model}</td>
-              <td>{pd.status}</td>
+              <td className="text-primary">{pd.status}</td>
+              <td>{pd.customer}</td>
+              <td>{pd.address}</td>
+              <td>{pd.contact}</td>
               
       
       {/* // orders.map(order=><div

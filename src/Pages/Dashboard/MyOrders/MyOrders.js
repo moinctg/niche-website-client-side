@@ -52,6 +52,9 @@ const MyOrders = () => {
             <th>Service Title</th>
             <th>Event description</th>
             <th>Image Link</th>
+            <th>Customer Name</th>
+            <th>Address</th>
+            <th>Contact</th>
           </tr>
         </thead>
         {
@@ -62,6 +65,9 @@ const MyOrders = () => {
               <td>{pd.name}</td>
               <td>{pd.description}</td>
              <td> <img src={pd.image} alt="" style={{height:'150px'}}/> </td>
+             <td>{pd.customer}</td>
+              <td>{pd.address}</td>
+              <td>{pd.contact}</td>
            
               <button onClick={()=> handleDelete(pd._id)} className="btn bg-danger p-2">Delete</button>
               </tr>

@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 
 const MangeOrder = () => {
   const [orders, setOrders] = useState([]);
-  const { register, handleSubmit,reset } = useForm();
-
+  const { register, handleSubmit,reset,errors } = useForm();
+  const [message, setMessage] = useState('');
   const [status, setStatus] = useState("");
   const [orderId, setOrderId] = useState("");
 
@@ -20,6 +20,9 @@ const MangeOrder = () => {
     console.log(id)
 
   }
+  const color = {
+       color:'green'
+  }
 
 
   // const status = "apporved";
@@ -28,8 +31,10 @@ const MangeOrder = () => {
     console.log(id);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = (data,e) => {
+    e.preventDefault();
     console.log(data, orderId);
+    setMessage('thank you Status updated');
     fetch(`https://sleepy-tor-93619.herokuapp.com/statusUpdate/${orderId}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -50,7 +55,7 @@ const MangeOrder = () => {
   return (
     <div className="container">
       <h1>All orders {orders.length}</h1>
-
+      {message}
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -59,7 +64,6 @@ const MangeOrder = () => {
             <th>Event description</th>
             <th>Image Link</th>
             <th>Status</th>
-            <th>Action</th>
           </tr>
         </thead>
         {orders?.map((pd, index) => (
@@ -71,7 +75,9 @@ const MangeOrder = () => {
               <td>{pd.image}</td>
               <td>
                 <form onSubmit={handleSubmit(onSubmit)}>
+                
                   <select
+                  
                     onClick={() => handleOrderId(pd?._id)}
                     {...register("status")}
                   >
@@ -79,12 +85,15 @@ const MangeOrder = () => {
                     <option value="approve">approve</option>
                     <option value="done">Done</option>
                   </select>
-                  <input type="submit" />
+                  <input className="button button-contactForm boxed-btn" type="submit" />
                 </form>
               </td>
               {/* <button className="btn bg-danger p-2">Delete</button> */}
-              <button onClick={()=>handleUpdate(pd._id)} className="btn bg-success p-2">Update</button>
+              {/* <button onClick={()=>handleUpdate(pd._id)} className="btn bg-success p-2">Update</button> */}
             </tr>
+          {/* { pd?.status && <div class="alert alert-primary" role="alert">
+                    User Created successfully!</div> }
+                   */}
           </tbody>
         ))}
       </Table>

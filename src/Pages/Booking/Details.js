@@ -92,6 +92,21 @@ const Details = () => {
                 <option value="business">business</option>
               </select>
               <br />
+              <input
+                {...register("customer", { required: true })}
+                placeholder="Customer Name"
+                className="p-2 m-2 w-100 input-field"
+              />
+               <input
+                {...register("address", { required: true })}
+                placeholder="Customer Address"
+                className="p-2 m-2 w-100 input-field"
+              />
+               <input
+                {...register("contact", { required: true })}
+                placeholder="Customer Contact Number"
+                className="p-2 m-2 w-100 input-field"
+              />
 
               {errors.exampleRequired && <span>This field is required</span>}
 
